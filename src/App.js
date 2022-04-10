@@ -4,70 +4,13 @@ import { AppUI } from './componentsUI/App';
 import { TodoProvider } from './components/TodoContext';
 
 
-
 function App() {
-  const [state,setState] = React.useState('Estado compartido');
-  return(
-    <React.Fragment>
-      <TodoHeader>
-        <TodoCounter />
-        <TodoSearch />
-      </TodoHeader>
-      <TodoList>
-        <TodoItem state={state}/>
-      </TodoList>
-    </React.Fragment>
+  return (
+    <TodoProvider>
+      <AppUI />
+    </TodoProvider>
   );
 }
-
-function TodoHeader({children}) {
-  return(
-   <header>
-      {children}
-   </header>
-  );
-}
-function TodoList({children}) {
-  return(
-    <section className='TodoList-container'>
-      {children}
-    </section>
-  );
-}
-function TodoCounter() {
-  return(
-    <p>TodoCounter</p>
-  );
-}
-function TodoSearch() {
-  return(
-    <p>TodoSearch</p>
-  );
-}
-
-function TodoItem({state}) {
-  return(
-    <p>TodoItem: {state}</p>
-  );
-}
-
-
-// function App() {
-//   return (
-//     <TodoProvider>
-//       <AppUI />
-//     </TodoProvider>
-//   );
-// }
 
 export default App;
 
-
-// const defaultTodos = [
-//   {text: 'cortar cebolla', completed: true},
-//   {text: 'Tomar el curso de intro de react', completed: false},
-//   {text: 'llorar con la llorona', completed: true},
-//   { text: 'LALALALAA', completed: false },
-// ]
-
-// localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos))
